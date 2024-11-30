@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Color Variables */
+  --text-color: #190a0b;
+  --background-color: #fcf8f8;
+  --primary-color: #bc5356;
+  --secondary-color: #95d5be;
+  --accent-color: #7da2cc;
+
+  --white-color: #fff;
+}
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Noto Sans";
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Roboto Serif";
+  font-weight: 700;
+}
+
+html {
+  font-size: 100%;
+}
+
+h1 {
+  font-size: 4.21rem;
+}
+
+h2 {
+  font-size: 3.158rem;
+}
+
+h3 {
+  font-size: 2.369rem;
+}
+
+h4 {
+  font-size: 1.777rem;
+}
+
+h5 {
+  font-size: 1.333rem;
+}
+
+small {
+  font-size: 0.75rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  background-color: var(--white-color);
+  padding: 0.625rem 0;
+  position: relative;
+}
+
+.brand a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.nav-links {
+  list-style: none;
+  display: none;
+}
+
+.nav-links li {
+  margin: 0 0.9375rem;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  font-size: 1.125rem;
+}
+
+.search-bar {
+  display: none;
+}
+
+.search-bar .btn {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.625rem;
+  display: inline-block;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+}
+.search-bar input {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-menu-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+}
+
+/* Main Content */
+main {
+  padding: 2.5rem 0;
+}
+
+main h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--background-color);
+  padding: 2.5rem 0;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.footer-column h5 {
+  margin-bottom: 0.9375rem;
+  font-size: 1.125rem;
+}
+
+.footer-column p,
+.footer-column ul {
+  font-size: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.625rem;
+}
+
+.footer-column ul li a {
+  color: var(--text-color);
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+}
+
+.social-links a {
+  margin-right: 0.9375rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.875rem;
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+}
+/* Template Styles ends here */
+
+/* Home Page CSS starts here */
+.hero {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 3.75rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 1.875rem;
+}
+
+.hero .btn {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.3125rem;
+  font-size: 1.125rem;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.9375rem;
+}
+
+.product-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.625rem;
+}
+
+.product-card .price {
+  font-size: 1.125rem;
+  color: var(--primary-color);
+  margin-bottom: 0.9375rem;
+}
+
+.product-card .btn {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.625rem;
+  display: inline-block;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+}
+/* Home Page CSS ends here */
+
+/* Add CSS for individual pages here */
+
+/* Media Queries */
+/* KEEP THIS AT THE BOTTOM OF THE CSS FILE */
+@media (min-width: 768px) {
+  /* Header */
+  .nav-links {
+    display: flex;
+  }
+
+  .search-bar {
+    display: block;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  header .container {
+    justify-content: space-between;
+  }
+  /* Footer */
+  .footer-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Home Page Content */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  /* Home Page Content */
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Home Page Content */
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
