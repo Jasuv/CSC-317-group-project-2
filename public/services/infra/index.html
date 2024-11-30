@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CodeQuad - [TEMPLATE]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <div class="container">
+        <div class="brand">
+          <a href="#">CodeQuad</a>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#">Web Services</a></li>
+            <li><a href="#">Infrastructure Services</a></li>
+          </ul>
+        </nav>
+        <div class="search-bar">
+          <form action="#" method="get">
+            <input
+              type="search"
+              placeholder="Search services"
+              aria-label="Search"
+            />
+            <a href="#" class="btn">go</a>
+          </form>
+        </div>
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle">
+          <span>&#9776;</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <!-- Page Content Starts Here -->
+        <div class="category-page">
+          <!-- Sorting Options -->
+          <div class="sorting-options">
+            <label for="sort-by">Sort by:</label>
+            <select id="sort-by" name="sort-by">
+              <option value="popularity">Popularity</option>
+              <option value="price-low-high">Price: Low to High</option>
+              <option value="price-high-low">Price: High to Low</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+
+          <!-- Filters -->
+          <aside class="filters">
+            <h3>Filter by</h3>
+            <div class="filter-group">
+              <h4>Price</h4>
+              <input
+                type="range"
+                min="0"
+                max="10000"
+                value="10000"
+                id="price-range"
+              />
+              <label for="price-range"
+                >Up to $<span id="price-value">10000</span></label
+              >
+            </div>
+          </aside>
+
+          <!-- Product Grid -->
+          <div class="product-grid">
+            <!-- Service 8: Android/iPhone App -->
+            <div class="product-card">
+              <img
+                src="images/mobile-app-development.jpg"
+                alt="Mobile App Development"
+              />
+              <h3>Mobile App Development</h3>
+              <p class="price">Starting at $6,999.00</p>
+              <button class="btn quick-view">View Details</button>
+            </div>
+            <!-- Service 9: SQL Relational Database -->
+            <div class="product-card">
+              <img
+                src="images/sql-database.jpg"
+                alt="SQL Relational Database"
+              />
+              <h3>SQL Relational Database Development</h3>
+              <p class="price">Starting at $2,499.00</p>
+              <button class="btn quick-view">View Details</button>
+            </div>
+            <!-- Service 10: Cybersecurity/Penetration Testing -->
+            <div class="product-card">
+              <img
+                src="images/cybersecurity.jpg"
+                alt="Cybersecurity and Penetration Testing"
+              />
+              <h3>Cybersecurity and Penetration Testing</h3>
+              <p class="price">Starting at $4,499.00</p>
+              <button class="btn quick-view">View Details</button>
+            </div>
+            <!-- Service 11: Cloud Infrastructure -->
+            <div class="product-card">
+              <img
+                src="images/cloud-infrastructure.jpg"
+                alt="Cloud Infrastructure Services"
+              />
+              <h3>Cloud Infrastructure Services</h3>
+              <p class="price">Starting at $3,999.00</p>
+              <button class="btn quick-view">View Details</button>
+            </div>
+            <!-- Service 12: Domain Name Management -->
+            <div class="product-card">
+              <img
+                src="images/domain-management.jpg"
+                alt="Domain Name Management"
+              />
+              <h3>Domain Name Management</h3>
+              <p class="price">$199.00 per year</p>
+              <button class="btn quick-view">View Details</button>
+            </div>
+          </div>
+        </div>
+        <!-- Page Content Ends Here -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-columns">
+          <!-- About Us -->
+          <div class="footer-column">
+            <h5>About Us</h5>
+            <p>
+              Learn more about CodeQuad and our commitment to providing the best
+              products and services.
+            </p>
+          </div>
+          <!-- Quick Links -->
+          <div class="footer-column">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <!-- Social Media Links -->
+          <div class="footer-column">
+            <h5>Follow Us</h5>
+            <div class="social-links">
+              <a href="#"
+                ><img src="images/icon-facebook.svg" alt="Facebook"
+              /></a>
+              <a href="#"
+                ><img src="images/icon-twitter.svg" alt="Twitter"
+              /></a>
+              <a href="#"
+                ><img src="images/icon-instagram.svg" alt="Instagram"
+              /></a>
+              <a href="#"
+                ><img src="images/icon-linkedin.svg" alt="LinkedIn"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">© 2023 CodeQuad. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

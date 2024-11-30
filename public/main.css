@@ -265,6 +265,167 @@ footer {
 }
 /* Home Page CSS ends here */
 
+/* Service Detail Page CSS starts here */
+.service-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.service-info h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.service-info .price {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.service-info p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.service-options label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.service-options select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.buttons .btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.add-to-cart {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  border: none;
+}
+
+.buy-now {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+}
+/* Service Detail Page CSS ends here */
+
+/* Category Page CSS starts here */
+.category-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.sorting-options {
+  margin-bottom: 1.5rem;
+}
+
+.sorting-options label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.sorting-options select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.filters {
+  display: none; /* Hidden on mobile, shown on larger screens */
+  margin-right: 2rem;
+}
+
+.filters h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+
+.filter-group h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 1rem;
+}
+
+#price-value {
+  font-weight: bold;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.product-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-card .price {
+  font-size: 1.125rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.product-card .btn {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+/* Category Page CSS ends here */
+
 /* Add CSS for individual pages here */
 
 /* Media Queries */
@@ -295,6 +456,33 @@ footer {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Service Detail Content */
+  .service-detail {
+    flex-direction: row;
+  }
+  .service-image,
+  .service-info {
+    flex: 1;
+  }
+  .service-image {
+    margin-right: 2rem;
+  }
+
+  /* Category Page Content */
+  .category-page {
+    flex-direction: row;
+  }
+
+  .filters {
+    display: block;
+    width: 25%;
+  }
+
+  .product-grid {
+    width: 75%;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 992px) {
@@ -302,11 +490,21 @@ footer {
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* Category Page Content */
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (min-width: 1200px) {
   /* Home Page Content */
   .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Category Page Content */
+  .product-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
