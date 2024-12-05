@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CodeQuad - FAQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <div class="container">
+        <div class="brand">
+          <a href="#">CodeQuad</a>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="services/web/index.html">Web Services</a></li>
+            <li>
+              <a href="services/infra/index.html">Infrastructure Services</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="search-bar">
+          <form action="#" method="get">
+            <input
+              type="search"
+              placeholder="Search services"
+              aria-label="Search"
+            />
+            <a href="#" class="btn">go</a>
+          </form>
+        </div>
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle">
+          <span>&#9776;</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <!-- Page Content Starts Here -->
+        <section class="faq">
+          <h1>Frequently Asked Questions</h1>
+          <div class="faq-category">
+            <h2>Shipping Questions</h2>
+            <ul>
+              <li>How long does shipping take?</li>
+              <li>Do you offer international shipping?</li>
+              <li>What are the shipping costs?</li>
+            </ul>
+          </div>
+          <div class="faq-category">
+            <h2>Returns Policy</h2>
+            <ul>
+              <li>What is your return policy?</li>
+              <li>How do I initiate a return?</li>
+              <li>Are there items that cannot be returned?</li>
+            </ul>
+          </div>
+          <div class="faq-category">
+            <h2>Account Questions</h2>
+            <ul>
+              <li>How do I create an account?</li>
+              <li>What do I do if I forget my password?</li>
+              <li>How can I update my account information?</li>
+            </ul>
+          </div>
+          <div class="faq-category">
+            <h2>Payment Questions</h2>
+            <ul>
+              <li>What payment methods do you accept?</li>
+              <li>Is my payment information secure?</li>
+              <li>Can I use multiple payment methods?</li>
+            </ul>
+          </div>
+          <div class="faq-category">
+            <h2>General Info</h2>
+            <ul>
+              <li>Where is your company located?</li>
+              <li>How do I contact customer support?</li>
+              <li>Do you have physical store locations?</li>
+            </ul>
+          </div>
+        </section>
+        <!-- Page Content Ends Here -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-columns">
+          <!-- About Us -->
+          <div class="footer-column">
+            <h5>About Us</h5>
+            <p>
+              Learn more about CodeQuad and our commitment to providing the best
+              products and services.
+            </p>
+          </div>
+          <!-- Quick Links -->
+          <div class="footer-column">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <!-- Social Media Links -->
+          <div class="footer-column">
+            <h5>Follow Us</h5>
+            <div class="social-links">
+              <a href="#"
+                ><img src="images/icon-facebook.svg" alt="Facebook"
+              /></a>
+              <a href="#"
+                ><img src="images/icon-twitter.svg" alt="Twitter"
+              /></a>
+              <a href="#"
+                ><img src="images/icon-instagram.svg" alt="Instagram"
+              /></a>
+              <a href="#"
+                ><img src="images/icon-linkedin.svg" alt="LinkedIn"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">© 2023 CodeQuad. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>
