@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CodeQuad - [TEMPLATE]</title>
+    <title>CodeQuad - Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../main.css" />
   </head>
@@ -38,35 +38,31 @@
     </header>
 
     <main>
-      <div class="container" id="usr-container">
+      <div class="container">
         <!-- Page Content Starts Here -->
-        <!-- ... -->
-        <div class="subcontainer1">
-          <div class="usrAcct-info">
-            <h3>Info</h3> <br>Address - Change<br>Payment methods - Change
-          </div>
-          <div class="usrAcct-order-history">
-            <h3>Order History</h3><br>Item 1 Name, Date Ordered, Date Delivered, $$$$
-          </div>
-        </div>
-        <div class="subcontainer2">
-          <div class="usrAcct-settings">
-            <h3>Settings</h3>
-            <ul>
-              <li>Notification Settings</li>
-              <li>Languages</li>
-            </ul>
-          </div>
-          <div class="usrAcct-privacy-security">
-            <h3>Privacy/Security</h3>
-            <ul>
-              <li>Change Password</li>
-              <li>Set up 2FA</li>
-              <li>See Logged in Devices</li>
-              <li>Privacy Policy</li>
-            </ul>
-          </div>
-        </div>
+        <section class="login">
+          <h1>Login</h1>
+          <form action="#" method="POST" class="login-form">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn">Login</button>
+            </div>
+
+            <div class="form-links">
+              <a href="../Account/registration.html" class="register-link">Register</a>
+              <a href="forgot-password.html" class="forgot-password-link">Forgot Password?</a>
+            </div>
+          </form>
+        </section>
         <!-- Page Content Ends Here -->
       </div>
     </main>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CodeQuad - Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../main.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <div class="container">
+        <div class="brand">
+          <a href="#">CodeQuad</a>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../services/web/index.html">Web Services</a></li>
+            <li>
+              <a href="../services/infra/index.html">Infrastructure Services</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="search-bar">
+          <form action="#" method="get">
+            <input
+              type="search"
+              placeholder="Search services"
+              aria-label="Search"
+            />
+            <a href="#" class="btn">go</a>
+          </form>
+        </div>
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle">
+          <span>&#9776;</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <!-- Page Content Starts Here -->
+        <section class="registration">
+          <h1>Registration</h1>
+          <form action="#" method="POST" class="registration-form">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first-name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last-name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" name="dob" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required />
+              </div>
+  
+              <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required />
+              </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+
+            <div class="form-group">
+              <label for="street-address">Street Address</label>
+              <input type="text" id="street-address" name="street-address" required />
+            </div>
+
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" required />
+            </div>
+
+            <div class="form-group">
+              <label for="zip-code">Zip Code</label>
+              <input type="text" id="zip-code" name="zip-code" required />
+            </div>
+
+            <div class="form-group">
+              <label for="country">Country</label>
+              <select id="country" name="country" required>
+                <option value="">Select a country</option>
+                <option value="usa">United States</option>
+                <option value="canada">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <!-- Add more countries as needed -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" id="state" name="state" required />
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn">Register</button>
+            </div>
+          </form>
+        </section>
+        <!-- Page Content Ends Here -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-columns">
+          <!-- About Us -->
+          <div class="footer-column">
+            <h5>About Us</h5>
+            <p>
+              Learn more about CodeQuad and our commitment to providing the best
+              products and services.
+            </p>
+          </div>
+          <!-- Quick Links -->
+          <div class="footer-column">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="../FAQ/faq.html">FAQ</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <!-- Social Media Links -->
+          <div class="footer-column">
+            <h5>Follow Us</h5>
+            <div class="social-links">
+              <a href="#"
+                ><img src="images/icon-facebook.svg" alt="Facebook"
+              /></a>
+              <a href="#"
+                ><img src="images/icon-twitter.svg" alt="Twitter"
+              /></a>
+              <a href="#"
+                ><img src="images/icon-instagram.svg" alt="Instagram"
+              /></a>
+              <a href="#"
+                ><img src="images/icon-linkedin.svg" alt="LinkedIn"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">© 2023 CodeQuad. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>
