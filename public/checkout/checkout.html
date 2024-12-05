@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CodeQuad - [TEMPLATE]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../main.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <div class="brand">
+        <a href="../index.html">CodeQuad</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../services/web/index.html">Web Services</a></li>
+          <li>
+            <a href="../services/infra/index.html">Infrastructure Services</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <form action="#" method="get">
+          <input type="search" placeholder="Search services" aria-label="Search" />
+          <a href="#" class="btn">Search</a>
+        </form>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <div class="mobile-menu-toggle">
+        <span>&#9776;</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" id="checkout-container">
+      <!-- Left Section -->
+      <div class="subcontainer1" id="checkout-subcontainer1">
+        <!-- Shipping and Billing Address -->
+        <div class="shipping-handling">
+          <h4>Shipping and Billing Address</h4>
+          <form>
+            <!-- Shipping Address -->
+            <fieldset>
+              <legend>Shipping Address</legend>
+              <input type="text" name="shipping-street" placeholder="Street and House/Apt number">
+              <input type="text" name="shipping-city" placeholder="City">
+              <input type="text" name="shipping-state" placeholder="State">
+              <input type="text" name="shipping-zip" placeholder="Zip Code">
+            </fieldset>
+
+            <!-- Checkbox to toggle billing address -->
+            <div class="checkbox-container">
+              <input type="checkbox" id="same-address" name="same-address" value="true">
+              <label for="same-address">Billing address is the same as shipping address</label>
+            </div>
+
+            <!-- Billing Address -->
+            <fieldset id="billing-address">
+              <legend>Billing Address</legend>
+              <input type="text" name="billing-street" placeholder="Street and House/Apt number">
+              <input type="text" name="billing-city" placeholder="City">
+              <input type="text" name="billing-state" placeholder="State">
+              <input type="text" name="billing-zip" placeholder="Zip Code">
+            </fieldset>
+          </form>
+        </div>
+
+        <!-- Card Info -->
+        <div class="card-info">
+          <h4>Card Info</h4>
+          <form>
+            <input type="text" name="number" id="checkout-cardnumber" placeholder="Enter Card Number">
+            <input type="text" name="name" id="checkout-cardname" placeholder="Enter Name">
+            <input type="text" name="security" id="checkout-cardsecurity" placeholder="CVV">
+            <input type="text" name="date" id="checkout-carddate" placeholder="Enter Expiration Date">
+
+            <!-- Card Type Selection -->
+            <div class="card-type">
+              <p>Select Card Type:</p>
+              <label>
+                <input type="radio" name="card-type" value="visa">
+                <span class="card-icon">(Icon) Visa\</span>
+              </label>
+              <label>
+                <input type="radio" name="card-type" value="mastercard">
+                <span class="card-icon">(Icon) MasterCard</span>
+              </label>
+              <label>
+                <input type="radio" name="card-type" value="amex">
+                <span class="card-icon">(Icon) AmEx</span>
+              </label>
+              <label>
+                <input type="radio" name="card-type" value="discover">
+                <span class="card-icon">(Icon) Discover</span>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Section -->
+      <div class="subcontainer2" id="checkout-subcontainer2">
+        <div class="cost">
+          <h4>Total Cost</h4>
+          <div id="items">Items: </div>
+          <div id="shipping-handling">Shipping and Handling: </div>
+          <div id="tax">Tax: </div>
+          <h5 id="total">Total: </h5>
+          <button class="purchase-btn">Purchase</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <!-- About Us -->
+        <div class="footer-column">
+          <h5>About Us</h5>
+          <p>
+            <a href="../about/about.html">Learn more</a> about CodeQuad and our commitment to providing the best
+            products and services.
+        </div>
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="../FAQ/faq.html">FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <!-- Social Media Links -->
+        <div class="footer-column">
+          <h5>Follow Us</h5>
+          <div class="social-links">
+            <a href="#"><img src="images/icon-facebook.svg" alt="Facebook" /></a>
+            <a href="#"><img src="images/icon-twitter.svg" alt="Twitter" /></a>
+            <a href="#"><img src="images/icon-instagram.svg" alt="Instagram" /></a>
+            <a href="#"><img src="images/icon-linkedin.svg" alt="LinkedIn" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2023 CodeQuad. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+
+</html>

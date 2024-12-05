@@ -1,212 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>CodeQuad - [TEMPLATE]</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <header>
-      <div class="container">
-        <div class="brand">
-          <a href="#">CodeQuad</a>
+
+<head>
+  <title>CodeQuad - [TEMPLATE]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <div class="brand">
+        <a href="index.html">CodeQuad</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="services/web/index.html">Web Services</a></li>
+          <li>
+            <a href="services/infra/index.html">Infrastructure Services</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <form action="#" method="get">
+          <input type="search" placeholder="Search products" aria-label="Search" />
+          <!-- <button type="submit">Search</button> -->
+          <a href="#" class="btn">Search</a>
+        </form>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <div class="mobile-menu-toggle">
+        <span>&#9776;</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Elevate Your Digital Presence</h1>
+      <p>
+        Transform your website into a powerful business tool with our expert
+        web design and infrastructure services. CodeQuad crafts custom
+        solutions that drive engagement, boost conversions, and fuel growth,
+        so you can focus on what matters most: growing your business.
+      </p>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <!-- Top Products/Services -->
+      <h2>Top Services</h2>
+      <div class="products-grid">
+        <!-- Service 1: Logo/Banner Design -->
+        <div class="product-card">
+          <a href="services/web/logo.html">
+            <img src="images/logo-banner-design.jpg" alt="Logo/Banner Design" />
+            <h3>Logo/Banner Design</h3>
+          </a>
+          <p class="price">$399.00</p>
+          <a href="services/web/logo.html" class="btn">View Details</a>
         </div>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="services/web/index.html">Web Services</a></li>
-            <li>
-              <a href="services/infra/index.html">Infrastructure Services</a>
-            </li>
+
+        <!-- Service 2: Static Website Development -->
+        <div class="product-card">
+          <a href="services/web/static-website.html">
+            <img src="images/static-website.jpg" alt="Static Website Development" />
+            <h3>Static Website Development</h3>
+          </a>
+          <p class="price">$999.00</p>
+          <a href="services/web/static-website.html" class="btn">View Details</a>
+        </div>
+
+        <!-- Service 3: Web Application Development -->
+        <div class="product-card">
+          <a href="services/web/web-app.html">
+            <img src="images/web-app.jpg" alt="Web Application Development" />
+            <h3>Web Application Development</h3>
+          </a>
+          <p class="price">Starting at $4,999.00</p>
+          <a href="services/web/web-app.html" class="btn">View Details</a>
+        </div>
+
+        <!-- Service 4: Frontend Framework App Development -->
+        <div class="product-card">
+          <a href="services/web/react-app.html">
+            <img src="images/frontend-app.jpg" alt="Frontend Framework App Development" />
+            <h3>Frontend Framework App Development</h3>
+          </a>
+          <p class="price">Starting at $3,499.00</p>
+          <a href="services/web/react-app.html" class="btn">View Details</a>
+        </div>
+
+        <!-- Service 5: API Endpoint Development -->
+        <div class="product-card">
+          <a href="services/web/api.html">
+            <img src="images/api-endpoint.jpg" alt="API Endpoint Development" />
+            <h3>API Endpoint Development</h3>
+          </a>
+          <p class="price">Starting at $1,499.00</p>
+          <a href="services/web/api.html" class="btn">View Details</a>
+        </div>
+
+        <!-- Service 6: Portfolio Website Development -->
+        <div class="product-card">
+          <a href="services/web/portfolio.html">
+            <img src="images/portfolio.jpg" alt="Portfolio Website Development" />
+            <h3>Portfolio Website Development</h3>
+          </a>
+          <p class="price">$799.00</p>
+          <a href="services/web/portfolio.html" class="btn">View Details</a>
+        </div>
+
+        <!-- Service 7: CSS Stylizing and Animations -->
+        <div class="product-card">
+          <a href="services/web/css.html">
+            <img src="images/css-animations.jpg" alt="CSS Stylizing and Animations" />
+            <h3>CSS Stylizing and Animations</h3>
+          </a>
+          <p class="price">Starting at $499.00</p>
+          <a href="services/web/css.html" class="btn">View Details</a>
+        </div>
+
+        <!-- Service 8: Mobile App Development -->
+        <div class="product-card">
+          <a href="services/infra/mobile-app.html">
+            <img src="images/mobile-app-development.jpg" alt="Mobile App Development" />
+            <h3>Mobile App Development</h3>
+          </a>
+          <p class="price">Starting at $6,999.00</p>
+          <a href="services/infra/mobile-app.html" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <!-- About Us -->
+        <div class="footer-column">
+          <h5>About Us</h5>
+          <p>
+            <a href="about/about.html">Learn more</a> about CodeQuad and our commitment to providing the best
+            products and services.
+          </p>
+        </div>
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="FAQ/faq.html">FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
           </ul>
-        </nav>
-        <div class="search-bar">
-          <form action="#" method="get">
-            <input
-              type="search"
-              placeholder="Search products"
-              aria-label="Search"
-            />
-            <!-- <button type="submit">Search</button> -->
-            <a href="#" class="btn">Search</a>
-          </form>
         </div>
-        <!-- Mobile Menu Toggle -->
-        <div class="mobile-menu-toggle">
-          <span>&#9776;</span>
-        </div>
-      </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <h1>Elevate Your Digital Presence</h1>
-        <p>
-          Transform your website into a powerful business tool with our expert
-          web design and infrastructure services. CodeQuad crafts custom
-          solutions that drive engagement, boost conversions, and fuel growth,
-          so you can focus on what matters most: growing your business.
-        </p>
-        <a href="#" class="btn">Get Started</a>
-      </div>
-    </section>
-
-    <main>
-      <div class="container">
-        <!-- Top Products/Services -->
-        <h2>Top Services</h2>
-        <div class="products-grid">
-          <!-- Service 1: Logo/Banner Design -->
-          <div class="product-card">
-            <a href="services/web/logo.html">
-              <img
-                src="images/logo-banner-design.jpg"
-                alt="Logo/Banner Design"
-              />
-              <h3>Logo/Banner Design</h3>
-            </a>
-            <p class="price">$399.00</p>
-            <a href="services/web/logo.html" class="btn">View Details</a>
-          </div>
-
-          <!-- Service 2: Static Website Development -->
-          <div class="product-card">
-            <a href="services/web/static-website.html">
-              <img
-                src="images/static-website.jpg"
-                alt="Static Website Development"
-              />
-              <h3>Static Website Development</h3>
-            </a>
-            <p class="price">$999.00</p>
-            <a href="services/web/static-website.html" class="btn"
-              >View Details</a
-            >
-          </div>
-
-          <!-- Service 3: Web Application Development -->
-          <div class="product-card">
-            <a href="services/web/web-app.html">
-              <img src="images/web-app.jpg" alt="Web Application Development" />
-              <h3>Web Application Development</h3>
-            </a>
-            <p class="price">Starting at $4,999.00</p>
-            <a href="services/web/web-app.html" class="btn">View Details</a>
-          </div>
-
-          <!-- Service 4: Frontend Framework App Development -->
-          <div class="product-card">
-            <a href="services/web/react-app.html">
-              <img
-                src="images/frontend-app.jpg"
-                alt="Frontend Framework App Development"
-              />
-              <h3>Frontend Framework App Development</h3>
-            </a>
-            <p class="price">Starting at $3,499.00</p>
-            <a href="services/web/react-app.html" class="btn">View Details</a>
-          </div>
-
-          <!-- Service 5: API Endpoint Development -->
-          <div class="product-card">
-            <a href="services/web/api.html">
-              <img
-                src="images/api-endpoint.jpg"
-                alt="API Endpoint Development"
-              />
-              <h3>API Endpoint Development</h3>
-            </a>
-            <p class="price">Starting at $1,499.00</p>
-            <a href="services/web/api.html" class="btn">View Details</a>
-          </div>
-
-          <!-- Service 6: Portfolio Website Development -->
-          <div class="product-card">
-            <a href="services/web/portfolio.html">
-              <img
-                src="images/portfolio.jpg"
-                alt="Portfolio Website Development"
-              />
-              <h3>Portfolio Website Development</h3>
-            </a>
-            <p class="price">$799.00</p>
-            <a href="services/web/portfolio.html" class="btn">View Details</a>
-          </div>
-
-          <!-- Service 7: CSS Stylizing and Animations -->
-          <div class="product-card">
-            <a href="services/web/css.html">
-              <img
-                src="images/css-animations.jpg"
-                alt="CSS Stylizing and Animations"
-              />
-              <h3>CSS Stylizing and Animations</h3>
-            </a>
-            <p class="price">Starting at $499.00</p>
-            <a href="services/web/css.html" class="btn">View Details</a>
-          </div>
-
-          <!-- Service 8: Mobile App Development -->
-          <div class="product-card">
-            <a href="services/infra/mobile-app.html">
-              <img
-                src="images/mobile-app-development.jpg"
-                alt="Mobile App Development"
-              />
-              <h3>Mobile App Development</h3>
-            </a>
-            <p class="price">Starting at $6,999.00</p>
-            <a href="services/infra/mobile-app.html" class="btn"
-              >View Details</a
-            >
+        <!-- Social Media Links -->
+        <div class="footer-column">
+          <h5>Follow Us</h5>
+          <div class="social-links">
+            <a href="#"><img src="images/icon-facebook.svg" alt="Facebook" /></a>
+            <a href="#"><img src="images/icon-twitter.svg" alt="Twitter" /></a>
+            <a href="#"><img src="images/icon-instagram.svg" alt="Instagram" /></a>
+            <a href="#"><img src="images/icon-linkedin.svg" alt="LinkedIn" /></a>
           </div>
         </div>
       </div>
-    </main>
+      <div class="footer-bottom">© 2023 CodeQuad. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="footer-columns">
-          <!-- About Us -->
-          <div class="footer-column">
-            <h5>About Us</h5>
-            <p>
-              Learn more about CodeQuad and our commitment to providing the best
-              products and services.
-            </p>
-          </div>
-          <!-- Quick Links -->
-          <div class="footer-column">
-            <h5>Quick Links</h5>
-            <ul>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <!-- Social Media Links -->
-          <div class="footer-column">
-            <h5>Follow Us</h5>
-            <div class="social-links">
-              <a href="#"
-                ><img src="images/icon-facebook.svg" alt="Facebook"
-              /></a>
-              <a href="#"
-                ><img src="images/icon-twitter.svg" alt="Twitter"
-              /></a>
-              <a href="#"
-                ><img src="images/icon-instagram.svg" alt="Instagram"
-              /></a>
-              <a href="#"
-                ><img src="images/icon-linkedin.svg" alt="LinkedIn"
-              /></a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">© 2023 CodeQuad. All rights reserved.</div>
-      </div>
-    </footer>
-  </body>
 </html>

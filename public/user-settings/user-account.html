@@ -4,7 +4,7 @@
 <head>
   <title>CodeQuad - [TEMPLATE]</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../../main.css" />
+  <link rel="stylesheet" href="../main.css" />
 </head>
 
 <body>
@@ -12,12 +12,14 @@
   <header>
     <div class="container">
       <div class="brand">
-        <a href="../../index.html">CodeQuad</a>
+        <a href="../index.html">CodeQuad</a>
       </div>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html">Web Services</a></li>
-          <li><a href="../infra/index.html">Infrastructure Services</a></li>
+          <li><a href="../services/web/index.html">Web Services</a></li>
+          <li>
+            <a href="../services/infra/index.html">Infrastructure Services</a>
+          </li>
         </ul>
       </nav>
       <div class="search-bar">
@@ -34,43 +36,33 @@
   </header>
 
   <main>
-    <div class="container">
+    <div class="container" id="usr-container">
       <!-- Page Content Starts Here -->
-      <div class="service-detail">
-        <div class="service-image">
-          <img src="images/api-endpoint.jpg" alt="API Endpoint Development Service" />
+      <!-- ... -->
+      <div class="subcontainer1">
+        <div class="usrAcct-info">
+          <h3>Info</h3> <br>Address - Change<br>Payment methods - Change
         </div>
-        <div class="service-info">
-          <h1>API Endpoint Development</h1>
-          <p class="price">Starting at $1,499.00</p>
-          <p>
-            Secure and efficient API endpoints to power your web and mobile
-            applications. We provide RESTful and GraphQL API development
-            services.
-          </p>
-          <!-- Options for services -->
-          <form action="#" method="post" class="service-options">
-            <label for="api-type">API Type:</label>
-            <select id="api-type" name="api-type">
-              <option value="rest">RESTful API</option>
-              <option value="graphql">GraphQL API</option>
-            </select>
-
-            <label for="authentication">Authentication Method:</label>
-            <select id="authentication" name="authentication">
-              <option value="none">None</option>
-              <option value="jwt">JWT Tokens</option>
-              <option value="oauth">OAuth 2.0</option>
-              <option value="api-keys">API Keys</option>
-            </select>
-
-            <div class="buttons">
-              <button type="submit" class="btn add-to-cart">
-                Add to Cart
-              </button>
-              <button type="submit" class="btn buy-now">Buy Now</button>
-            </div>
-          </form>
+        <div class="usrAcct-order-history">
+          <h3>Order History</h3><br>Item 1 Name, Date Ordered, Date Delivered, $$$$
+        </div>
+      </div>
+      <div class="subcontainer2">
+        <div class="usrAcct-settings">
+          <h3>Settings</h3>
+          <ul>
+            <li>Notification Settings</li>
+            <li>Languages</li>
+          </ul>
+        </div>
+        <div class="usrAcct-privacy-security">
+          <h3>Privacy/Security</h3>
+          <ul>
+            <li>Change Password</li>
+            <li>Set up 2FA</li>
+            <li>See Logged in Devices</li>
+            <li>Privacy Policy</li>
+          </ul>
         </div>
       </div>
       <!-- Page Content Ends Here -->
@@ -85,7 +77,7 @@
         <div class="footer-column">
           <h5>About Us</h5>
           <p>
-            <a href="../../about/about.html">Learn more</a> about CodeQuad and our commitment to providing the best
+            <a href="../about/about.html">Learn more</a> about CodeQuad and our commitment to providing the best
             products and services.
           </p>
         </div>
@@ -94,7 +86,7 @@
           <h5>Quick Links</h5>
           <ul>
             <li><a href="#">Contact Us</a></li>
-            <li><a href="../../FAQ/faq.html">FAQ</a></li>
+            <li><a href="../FAQ/faq.html">FAQ</a></li>
             <li><a href="#">Privacy Policy</a></li>
           </ul>
         </div>
