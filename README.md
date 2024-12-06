@@ -1,5 +1,18 @@
-# Misc Todos:
-- Need Images for all the services
+# Todo: Find Images for all services
+| Name                                   | Image Filename               |
+|----------------------------------------|------------------------------|
+| Logo Design                            | logo-design.png              |
+| Static Website Development             | static-website.jpg           |
+| Web Application Development            | web-app.jpg                  |
+| Frontend Framework App Development     | frontend-app.jpg             |
+| API Endpoint Development               | api-endpoint.jpg             |
+| Portfolio Website Development          | portfolio.jpg                |
+| CSS Stylizing and Animations           | css-animations.jpg           |
+| Mobile App Development                 | mobile-app-development.jpg   |
+| SQL Relational Database Development    | sql-database.jpg             |
+| Cybersecurity and Penetration Testing  | cybersecurity.jpg            |
+| Cloud Infrastructure Services          | cloud-infrastructure.jpg     |
+| Domain Name Management                 | domain-management.jpg        |
 
 # Page Assignments
 - Homepage [Assigned to BILAL]
