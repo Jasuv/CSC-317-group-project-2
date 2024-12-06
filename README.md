@@ -22,7 +22,7 @@
     - Route: app.get('/services/web')
     - dynamic
     - body in views/services/web.ejs
-- Service Category: Infrastructure
+- Service Category: Infrastructure [Assigned to BILAL]
     - Route: app.get('/services/infra')
     - dynamic
     - body in views/services/infra.ejs
