@@ -36,16 +36,16 @@
     - Route: app.get('/profile')
     - dynamic
     - body in views/profile.ejs
-- Order: Create / View
+- Order: Create / View [Assigned to BILAL]
     - Route (view): app.get('/order')
     - Route (create): app.post('/order')
     - dynamic
     - body in views/order.ejs
-- Service Detail[BILAL]
+- Service Detail [Assigned to BILAL]
     - Route: app.get('/service/:id')
     - dynamic
     - body in views/service-detail.ejs
-- Add/Remove/Checkout/View cart [BILAL]
+- Add/Remove/Checkout/View cart [Assigned to BILAL]
     - Route: app.get('/cart')
     - dynamic
     - body in views/cart.ejs
