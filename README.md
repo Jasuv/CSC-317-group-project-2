@@ -20,17 +20,17 @@
     - ~~static~~
     - ~~body in views/home.ejs~~
 - FAQ
-    - Route: app.get('/faq')
-    - static
-    - body in views/faq.ejs
+    - ~~Route: app.get('/faq')~~
+    - ~~static~~
+    - ~~body in views/faq.ejs~~
 - Contact us
-    - Route: app.get('/contact')
-    - static
-    - body in views/contact.ejs
+    - ~~Route: app.get('/contact')~~
+    - ~~static~~
+    - ~~body in views/contact.ejs~~
 - About us
-    - Route: app.get('/about')
-    - static
-    - body in views/about.ejs
+    - ~~Route: app.get('/about')~~
+    - ~~static~~
+    - ~~body in views/about.ejs~~
 - Service Category: Web [Assigned to BILAL]
     - ~~Route: app.get('/services/web')~~
     - ~~dynamic~~
