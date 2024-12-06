@@ -1,0 +1,52 @@
+# Misc Todos:
+- Need Images for all the services
+
+# Page Assignments
+- Homepage [Assigned to BILAL]
+    - ~~Route: app.get('/')~~
+    - ~~static~~
+    - ~~body in views/home.ejs~~
+- FAQ
+    - Route: app.get('/faq')
+    - static
+    - body in views/faq.ejs
+- Contact us
+    - Route: app.get('/contact')
+    - static
+    - body in views/contact.ejs
+- About us
+    - Route: app.get('/about')
+    - static
+    - body in views/about.ejs
+- Service Category: Web
+    - Route: app.get('/services/web')
+    - dynamic
+    - body in views/services/web.ejs
+- Service Category: Infrastructure
+    - Route: app.get('/services/infra')
+    - dynamic
+    - body in views/services/infra.ejs
+- Login/Registration
+    - Route (login): app.get('/auth')
+    - Route (register): app.post('/auth')
+    - dynamic
+    - body in views/login.ejs
+    - body in views/register.ejs
+- Profile
+    - Route: app.get('/profile')
+    - dynamic
+    - body in views/profile.ejs
+- Order: Create / View
+    - Route (view): app.get('/order')
+    - Route (create): app.post('/order')
+    - dynamic
+    - body in views/order.ejs
+- Service Detail[BILAL]
+    - Route: app.get('/service/:id')
+    - dynamic
+    - body in views/service-detail.ejs
+- Add/Remove/Checkout/View cart [BILAL]
+    - Route: app.get('/cart')
+    - dynamic
+    - body in views/cart.ejs
+    - will use express-sessions to handle cart data

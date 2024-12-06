@@ -10,7 +10,7 @@ const {
   createOrder,
   viewOrder,
   viewAllOrders,
-} = require("../db/index");
+} = require("../db/");
 const bcrypt = require("bcrypt");
 
 describe("Database connection", () => {
