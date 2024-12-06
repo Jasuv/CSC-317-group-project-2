@@ -31,14 +31,14 @@
     - Route: app.get('/about')
     - static
     - body in views/about.ejs
-- Service Category: Web
-    - Route: app.get('/services/web')
-    - dynamic
-    - body in views/services/web.ejs
+- Service Category: Web [Assigned to BILAL]
+    - ~~Route: app.get('/services/web')~~
+    - ~~dynamic~~
+    - ~~body in views/services/web.ejs~~
 - Service Category: Infrastructure [Assigned to BILAL]
-    - Route: app.get('/services/infra')
-    - dynamic
-    - body in views/services/infra.ejs
+    - ~~Route: app.get('/services/infra')~~
+    - ~~dynamic~~
+    - ~~body in views/services/infra.ejs~~
 - Login/Registration
     - Route (login): app.get('/auth')
     - Route (register): app.post('/auth')

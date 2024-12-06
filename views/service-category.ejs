@@ -1,0 +1,17 @@
+<div class="category-page">
+  <h2><%= title %></h2>
+  <div class="product-grid">
+    <% services.forEach(service => { %>
+    <div class="product-card">
+      <img
+        src="images/<%= service.image_filename %>"
+        alt="<%= service.name %>"
+      />
+      <h3><%= service.name %></h3>
+      <p class="short_description"><%= service.short_description %></p>
+      <p class="price">$<%= service.price %></p>
+      <a href="/service/<%= service.id %>" class="btn">View Details</a>
+    </div>
+    <% }); %>
+  </div>
+</div>

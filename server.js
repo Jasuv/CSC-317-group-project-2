@@ -82,16 +82,26 @@ app.get("/about", async (req, res) => {
 // ==============================
 
 // Service Category: Web (dynamic)
-app.get("/services/web2", async (req, res) => {
+app.get("/services/web", async (req, res) => {
   const services = await selectServicesByCategory("web");
-  // const content = await ejs.renderFile("views/services.ejs", { services });
-  res.render("layout", {
-    body: `<pre>${JSON.stringify(services, null, 2)}</pre>`,
+  const title = "Web Services";
+  const content = await ejs.renderFile("views/service-category.ejs", {
+    services,
+    title,
   });
+  res.render("layout", { body: content });
 });
 
 // Service Category: Infrastructure (dynamic)
-app.get("/services/infra", async (req, res) => {});
+app.get("/services/infra", async (req, res) => {
+  const services = await selectServicesByCategory("infra");
+  const title = "Infrastructure Services";
+  const content = await ejs.renderFile("views/service-category.ejs", {
+    services,
+    title,
+  });
+  res.render("layout", { body: content });
+});
 
 // Login/Registration (dynamic)
 // GET /auth shows login form, POST /auth handles registration
