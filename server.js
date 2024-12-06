@@ -82,7 +82,13 @@ app.get("/about", async (req, res) => {
 // ==============================
 
 // Service Category: Web (dynamic)
-app.get("/services/web", async (req, res) => {});
+app.get("/services/web2", async (req, res) => {
+  const services = await selectServicesByCategory("web");
+  // const content = await ejs.renderFile("views/services.ejs", { services });
+  res.render("layout", {
+    body: `<pre>${JSON.stringify(services, null, 2)}</pre>`,
+  });
+});
 
 // Service Category: Infrastructure (dynamic)
 app.get("/services/infra", async (req, res) => {});
