@@ -56,7 +56,6 @@ app.get("/", async (req, res) => {
   res.render("layout", { body: content });
 });
 
-
 // FAQ (static)
 app.get("/faq", async (req, res) => {
   const content = await ejs.renderFile("views/faq.ejs");
