@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>CodeQuad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/main.css" />
+  </head>
 
-<head>
-  <title>CodeQuad</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/main.css" />
-</head>
-
-<body>
-  <!-- Navigation -->
-  <header>
-    <div class="container">
-      <div class="brand">
-        <a href="/">CodeQuad</a>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <div class="container">
+        <div class="brand">
+          <a href="/">CodeQuad</a>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="/services/web">Web Services</a></li>
+            <li>
+              <a href="/services/infra">Infrastructure Services</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="search-bar">
+          <form action="#" method="get">
+            <input
+              type="search"
+              placeholder="Search products"
+              aria-label="Search"
+            />
+            <!-- <button type="submit">Search</button> -->
+            <a href="#" class="btn">Search</a>
+          </form>
+        </div>
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle">
+          <span>&#9776;</span>
+        </div>
       </div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="/services/web">Web Services</a></li>
-          <li>
-            <a href="/services/infra">Infrastructure Services</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="search-bar">
-        <form action="#" method="get">
-          <input type="search" placeholder="Search services" aria-label="Search" <a href="#" class="btn">Search</a>
-        </form>
-      </div>
-      <!-- Mobile Menu Toggle -->
-      <div class="mobile-menu-toggle">
-        <span>&#9776;</span>
-      </div>
-    </div>
-  </header>
+    </header>
+  </body>
+</html>

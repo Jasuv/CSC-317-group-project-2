@@ -52,6 +52,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Homepage (static)
 app.get("/", async (req, res) => {
+  console.log("test");
   const content = await ejs.renderFile("views/home.ejs");
   res.render("layout", { body: content });
 });
