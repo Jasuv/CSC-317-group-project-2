@@ -38,7 +38,7 @@ app.use(express.json());
 // Initialize cart if needed
 app.use((req, res, next) => {
   if (!req.session.cart) {
-    req.session.cart = [];
+    req.session.cart = {};
   }
   next();
 });
@@ -117,12 +117,55 @@ app.get("/order", async (req, res) => {});
 app.post("/order", async (req, res) => {});
 
 // Service Detail (dynamic)
-app.get("/service/:id", async (req, res) => {});
+app.get("/service/:id", async (req, res) => {
+  const service = await selectServiceDetails(req.params.id);
+  const content = await ejs.renderFile("views/service-detail.ejs", {
+    service,
+  });
+  res.render("layout", { body: content });
+});
 
 // Cart (Add/Remove/Checkout/View) (dynamic)
-app.get("/cart", async (req, res) => {});
-app.post("/cart/add", async (req, res) => {});
-app.post("/cart/remove", async (req, res) => {});
+app.get("/cart", async (req, res) => {
+  const cart = req.session.cart;
+  const services = [];
+  for (const id in cart) {
+    const service = await selectServiceDetails(id);
+    services.push({ ...service, quantity: cart[id] });
+  }
+  const content = await ejs.renderFile("views/cart.ejs", { services });
+  res.render("layout", { body: content });
+});
+
+app.post("/cart/add", async (req, res) => {
+  const service = await selectServiceDetails(req.body.id);
+  if (!service) {
+    return res.redirect("/");
+  }
+  if (!req.session.cart) req.session.cart = {};
+
+  if (!req.session.cart.hasOwnProperty(service.id)) {
+    req.session.cart[service.id] = 0;
+  }
+  req.session.cart[service.id] += 1;
+  res.redirect("/cart");
+});
+
+app.post("/cart/remove", async (req, res) => {
+  const service = await selectServiceDetails(req.body.id);
+  if (!service) {
+    return res.redirect("/");
+  }
+  if (!req.session.cart) req.session.cart = {};
+
+  if (req.session.cart.hasOwnProperty(service.id)) {
+    req.session.cart[service.id] -= 1;
+    if (req.session.cart[service.id] == 0) {
+      delete req.session.cart[service.id];
+    }
+  }
+  res.redirect("/cart");
+});
 app.post("/cart/checkout", async (req, res) => {});
 
 const PORT = process.env.PORT || 3000;

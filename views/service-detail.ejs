@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="service-detail">
+    <div class="service-image">
+      <img
+        src="images/<%= service.image_filename %>"
+        alt="<%= service.name %> Service"
+      />
+    </div>
+    <div class="service-info">
+      <h1><%= service.name %></h1>
+      <p class="price">$<%= service.price %></p>
+      <p><%= service.description %></p>
+
+      <form action="/cart/add" method="post" class="service-options">
+        <input type="hidden" name="id" value="<%= service.id %>" />
+        <input type="hidden" name="quantity" value="1" />
+        <div class="buttons">
+          <button type="submit" class="btn add-to-cart">Add to Cart</button>
+          <button type="submit" class="btn buy-now" formaction="/cart/checkout">
+            Buy Now
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
