@@ -14,6 +14,8 @@
 | Cloud Infrastructure Services          | cloud-infrastructure.jpg     |
 | Domain Name Management                 | domain-management.jpg        |
 
+# Todo: Figure out deployment --Bilal
+
 # Page Assignments
 - Homepage [Assigned to BILAL]
     - ~~Route: app.get('/')~~
