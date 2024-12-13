@@ -55,11 +55,11 @@
     - dynamic
     - body in views/order.ejs
 - Service Detail [Assigned to BILAL]
-    - Route: app.get('/service/:id')
-    - dynamic
-    - body in views/service-detail.ejs
+    - ~~Route: app.get('/service/:id')~~
+    - ~~dynamic~~
+    - ~~body in views/service-detail.ejs~~
 - Add/Remove/Checkout/View cart [Assigned to BILAL]
-    - Route: app.get('/cart')
-    - dynamic
-    - body in views/cart.ejs
-    - will use express-sessions to handle cart data
+    - ~~Route: app.get('/cart')~~
+    - ~~dynamic~~
+    - ~~body in views/cart.ejs~~
+    - ~~will use express-sessions to handle cart data~~
