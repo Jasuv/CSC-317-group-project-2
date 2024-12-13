@@ -14,6 +14,8 @@
 | Cloud Infrastructure Services          | cloud-infrastructure.jpg     |
 | Domain Name Management                 | domain-management.jpg        |
 
+# Todo: Figure out deployment --Bilal
+
 # Page Assignments
 - Homepage [Assigned to BILAL]
     - ~~Route: app.get('/')~~
@@ -39,12 +41,12 @@
     - ~~Route: app.get('/services/infra')~~
     - ~~dynamic~~
     - ~~body in views/services/infra.ejs~~
-- Login/Registration
-    - Route (login): app.get('/auth')
-    - Route (register): app.post('/auth')
-    - dynamic
-    - body in views/login.ejs
-    - body in views/register.ejs
+- Login/Registration [Assigned to JOHN]
+    - ~~Route (login): app.get('/auth')~~
+    - ~~Route (register): app.post('/auth')~~
+    - ~~dynamic
+    - ~~body in views/login.ejs~~
+    - ~~body in views/register.ejs~~
 - Profile
     - Route: app.get('/profile')
     - dynamic
