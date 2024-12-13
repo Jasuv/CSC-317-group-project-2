@@ -58,6 +58,11 @@ app.get("/", async (req, res) => {
 
 // FAQ (static)
 app.get("/faq", async (req, res) => {
+
+  if (req.session.user) {
+    
+  }
+
   const content = await ejs.renderFile("views/faq.ejs");
   res.render("layout", { body: content });
 });
@@ -71,6 +76,18 @@ app.get("/contact", async (req, res) => {
 // About us (static)
 app.get("/about", async (req, res) => {
   const content = await ejs.renderFile("views/about.ejs");
+  res.render("layout", { body: content });
+});
+
+// Login (static)
+app.get("/login", async (req, res) => {
+  const content = await ejs.renderFile("views/login.ejs");
+  res.render("layout", { body: content });
+});
+
+// Registration (static)
+app.get("/registration", async (req, res) => {
+  const content = await ejs.renderFile("views/registration.ejs");
   res.render("layout", { body: content });
 });
 
@@ -101,9 +118,43 @@ app.get("/services/infra", async (req, res) => {
 });
 
 // Login/Registration (dynamic)
-// GET /auth shows login form, POST /auth handles registration
-app.get("/auth", async (req, res) => {});
-app.post("/auth", async (req, res) => {});
+app.get("/auth", async (req, res) => {
+  const {username, password} = req.query;
+
+  response = await authenticateUser(username, password);
+  if (!response) {
+    const content = await ejs.renderFile("views/login.ejs");
+    res.render("layout", { body: content });
+    console.log("There was an error in your username or password");
+  }
+  else {
+    req.session.user = { id: username };
+    console.log(req.session.user);
+    console.log("Login successful!");
+
+    const content = await ejs.renderFile("views/home.ejs");
+    res.render("layout", { body: content });
+  }
+});
+
+app.post("/auth", async (req, res) => {
+  const { first, last, dob, email, username, password, phone} = req.body;
+
+  console.log(first);
+  console.log(last);
+  console.log(dob);
+  console.log(email);
+  console.log("username: ", username);
+  console.log("password: ", password);
+
+  await insertNewUser({firstName: first, lastName: last, email: email, username: username, password: password, phoneNumber: phone});
+  
+  req.session.user = { id: username };
+  console.log(req.session.user);
+
+  const content = await ejs.renderFile("views/home.ejs");
+  res.render("layout", { body: content });
+});
 
 // Profile (dynamic)
 app.get("/profile", async (req, res) => {});

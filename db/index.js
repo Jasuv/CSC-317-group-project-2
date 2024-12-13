@@ -14,7 +14,7 @@ const pool = require("./connection");
  * @param {string} user.dob - Date of birth (YYYY-MM-DD)
  * @param {string} user.email - Email address
  * @param {string} user.username - Username
- * @param {string} user.passwordHash - Hashed password
+ * @param {string} user.password - Unhashed password
  * @param {string} user.phoneNumber - Phone number
  * @returns {Object} - Inserted user record
  */
@@ -29,8 +29,9 @@ async function insertNewUser({
 }) {
   // Hash the password
   const saltRounds = 10;
+  console.log(password);
   const passwordHash = await bcrypt.hash(password, saltRounds);
-
+  
   const query = `
     INSERT INTO Users (
       first_name,
@@ -60,6 +61,7 @@ async function insertNewUser({
     console.error("Error inserting new user:", err);
     throw err;
   }
+  
 }
 
 /**
@@ -89,7 +91,6 @@ async function authenticateUser(identifier, password) {
         return user;
       }
     }
-
     return null;
   } catch (err) {
     console.error("Error authenticating user:", err);
