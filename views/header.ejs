@@ -4,6 +4,7 @@
     <title>CodeQuad</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
 
 <body>
@@ -27,13 +28,29 @@
           <a href="#" class="btn">Search</a>
         </form>
       </div>
-      <div class=""></div>
-        <a href="/login" class="btn">Login</a>
-        <a href="/registration" class="btn">Register</a>
+      <div class="">
+      <% if (user?.id) { %>
+      <div class="horizontal-menu">
+        <ul>
+          <li><a href="/orders"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+          <li><a href="/profile"><i class="fas fa-user-circle"></i> Profile</a></li>
+          <li><a href="/logout"><i class="fas fa-power-off"></i> Logout</a></li>
+        </ul>
+      </div>
+      <% } else { %>
+      <div class="horizontal-menu">
+        <ul>
+          <li><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+          <li><a href="/registration"><i class="fas fa-user-plus"></i> Register</a></li>
+        </ul>
+      </div>
+      <% } %>
+
       </div>
       <!-- Mobile Menu Toggle -->
       <div class="mobile-menu-toggle">
         <span>&#9776;</span>
       </div>
+    </div>
     </header>
     <main>

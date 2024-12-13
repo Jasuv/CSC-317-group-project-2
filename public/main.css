@@ -12,9 +12,7 @@
   --text-color: #190a0b;
   --background-color: #fcf8f8;
   --primary-color: #bc5356;
-  --secondary-color: #95d5be;
-  --accent-color: #7da2cc;
-
+  --secondary-color: #a7a890;
   --white-color: #fff;
 }
 
@@ -223,14 +221,16 @@ footer {
   margin-bottom: 1.875rem;
 }
 
-.btn {
+.hero .btn {
   background-color: var(--white-color);
-  color: var(--primary-color);
-  padding: 0.625rem 1.25rem;
+  color: var(--text-color);
+  padding: 0.9375rem 1.875rem;
   border-radius: 0.3125rem;
   font-size: 1.125rem;
-  border: 1px solid var(--primary-color);
+  cursor: pointer;
 }
+
+
 
 .products-grid {
   display: grid;
@@ -261,14 +261,6 @@ footer {
   margin-bottom: 0.9375rem;
 }
 
-.product-card .btn {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  padding: 0.625rem;
-  display: inline-block;
-  border-radius: 0.3125rem;
-  font-size: 1rem;
-}
 
 /* Home Page CSS ends here */
 
@@ -335,7 +327,7 @@ footer {
 
 .add-to-cart {
   background-color: var(--secondary-color);
-  color: var(--white-color);
+  color: var(--text-color);
   border: none;
 }
 
@@ -427,7 +419,7 @@ footer {
 
 .product-card .btn {
   background-color: var(--secondary-color);
-  color: var(--white-color);
+  color: var(--text-color);
   padding: 0.5rem 1rem;
   border-radius: 0.3125rem;
   font-size: 1rem;
@@ -471,7 +463,7 @@ footer {
   font-size: 1.125rem;
   line-height: 1.75;
   margin-bottom: 0.5rem;
-  color: var(--accent-color);
+  color: var(--secondary-color);
 }
 
 .faq-category ul li:hover {
@@ -886,6 +878,38 @@ h2 {
 }
 /* About end*/
 
+/* Authorized Menu */
+.horizontal-menu {
+  display: flex;
+  margin-top: 10px;
+}
+
+.horizontal-menu ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.horizontal-menu li {
+  margin-right: 15px;
+}
+
+.horizontal-menu li:last-child {
+  margin-right: 0;
+}
+
+.horizontal-menu a {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.horizontal-menu a i {
+  margin-right: 8px;
+  color: var(--primary-color)
+}
 /* Media Queries */
 
 /* KEEP THIS AT THE BOTTOM OF THE CSS FILE */

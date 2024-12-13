@@ -43,6 +43,13 @@ app.use((req, res, next) => {
   next();
 });
 
+// for templates to access user info
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+
+  next();
+});
+
 // ==============================
 // Static Pages
 // ==============================
@@ -52,7 +59,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Homepage (static)
 app.get("/", async (req, res) => {
-  console.log("test");
   const content = await ejs.renderFile("views/home.ejs");
   res.render("layout", { body: content });
 });
@@ -90,6 +96,12 @@ app.get("/registration", async (req, res) => {
   res.render("layout", { body: content });
 });
 
+// Logout (static)
+app.get("/logout", async (req, res) => {
+  req.session.user = null;
+  res.redirect("/");
+});
+
 // ==============================
 // Dynamic Routes
 // ==============================
@@ -117,8 +129,8 @@ app.get("/services/infra", async (req, res) => {
 });
 
 // Login/Registration (dynamic)
-app.get("/auth", async (req, res) => {
-  const { username, password } = req.query;
+app.post("/auth", async (req, res) => {
+  const { username, password } = req.body
 
   response = await authenticateUser(username, password);
   if (!response) {
@@ -127,12 +139,10 @@ app.get("/auth", async (req, res) => {
     console.log("There was an error in your username or password");
   } else {
     // req.session.user = { id: username };
-    req.session.userId = response.id;
-    console.log(req.session.userId);
+    req.session.user = response;
+    console.log(response);
     console.log("Login successful!");
-
-    const content = await ejs.renderFile("views/home.ejs");
-    res.render("layout", { body: content });
+    res.redirect("/");
   }
 });
 
@@ -167,7 +177,7 @@ app.get("/profile", async (req, res) => {});
 
 // Order: View (GET) and Create (POST)
 app.get("/order/:id", async (req, res) => {
-  const userId = req.session.userId;
+  const userId = req.session.user.id;
   // const userId = 1;
   if (!req.params.id) return res.redirect("/");
 
@@ -180,7 +190,7 @@ app.get("/order/:id", async (req, res) => {
 
 // Order Creation here
 app.post("/checkout", async (req, res) => {
-  const userId = req.session.userId;
+  const userId = req.session.user.id;
   // const userId = 1;
   const cart = req.session.cart;
   const orderItems = [];
