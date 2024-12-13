@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="cart-container">
+    <h1>Your Cart</h1>
+
+    <% if (services.length === 0) { %>
+    <p>Your cart is empty. <a href="/">Continue Shopping</a></p>
+    <% } else { %>
+    <div class="cart-items">
+      <% let total = 0; %> <% for (const service of services) { %> <% const
+      lineTotal = service.price * service.quantity; %> <% total += lineTotal; %>
+
+      <div class="cart-item">
+        <div class="cart-image">
+          <img
+            src="images/<%= service.image_filename %>"
+            alt="<%= service.name %>"
+          />
+        </div>
+        <div class="cart-details">
+          <div class="cart-name"><%= service.name %></div>
+          <div class="cart-quantity-price">
+            <span class="cart-quantity">Qty: <%= service.quantity %></span>
+            <span class="cart-price">Unit Price: $<%= service.price %></span>
+          </div>
+          <div class="cart-line-total">Line Total: $<%= lineTotal %></div>
+        </div>
+        <div class="cart-remove">
+          <form action="/cart/remove" method="post">
+            <input type="hidden" name="id" value="<%= service.id %>" />
+            <button type="submit" class="remove-btn">Remove</button>
+          </form>
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+    <div class="cart-summary">
+      <p><strong>Total:</strong> $<%= total %></p>
+      <form action="/cart/checkout" method="post">
+        <button type="submit" class="checkout-btn">Checkout</button>
+      </form>
+    </div>
+    <% } %>
+  </div>
+</div>
