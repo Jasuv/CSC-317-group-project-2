@@ -198,7 +198,7 @@ app.get("/orders", async (req, res) => {
 // Order Creation here
 app.post("/checkout", async (req, res) => {
   const userId = req?.session?.user?.id || null;
-  // const userId = 1;
+  if (!userId) return res.redirect("/login");
   const cart = req.session.cart;
   const orderItems = [];
 
