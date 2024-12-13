@@ -59,9 +59,7 @@ app.get("/", async (req, res) => {
 
 // FAQ (static)
 app.get("/faq", async (req, res) => {
-
   if (req.session.user) {
-    
   }
 
   const content = await ejs.renderFile("views/faq.ejs");
@@ -120,17 +118,17 @@ app.get("/services/infra", async (req, res) => {
 
 // Login/Registration (dynamic)
 app.get("/auth", async (req, res) => {
-  const {username, password} = req.query;
+  const { username, password } = req.query;
 
   response = await authenticateUser(username, password);
   if (!response) {
     const content = await ejs.renderFile("views/login.ejs");
     res.render("layout", { body: content });
     console.log("There was an error in your username or password");
-  }
-  else {
-    req.session.user = { id: username };
-    console.log(req.session.user);
+  } else {
+    // req.session.user = { id: username };
+    req.session.userId = response.id;
+    console.log(req.session.userId);
     console.log("Login successful!");
 
     const content = await ejs.renderFile("views/home.ejs");
@@ -139,7 +137,7 @@ app.get("/auth", async (req, res) => {
 });
 
 app.post("/auth", async (req, res) => {
-  const { first, last, dob, email, username, password, phone} = req.body;
+  const { first, last, dob, email, username, password, phone } = req.body;
 
   console.log(first);
   console.log(last);
@@ -148,8 +146,15 @@ app.post("/auth", async (req, res) => {
   console.log("username: ", username);
   console.log("password: ", password);
 
-  await insertNewUser({firstName: first, lastName: last, email: email, username: username, password: password, phoneNumber: phone});
-  
+  await insertNewUser({
+    firstName: first,
+    lastName: last,
+    email: email,
+    username: username,
+    password: password,
+    phoneNumber: phone,
+  });
+
   req.session.user = { id: username };
   console.log(req.session.user);
 
@@ -162,8 +167,8 @@ app.get("/profile", async (req, res) => {});
 
 // Order: View (GET) and Create (POST)
 app.get("/order/:id", async (req, res) => {
-  // const userId = req.session.userId;
-  const userId = 1;
+  const userId = req.session.userId;
+  // const userId = 1;
   if (!req.params.id) return res.redirect("/");
 
   const order = await viewOrder(req.params.id);
@@ -173,9 +178,10 @@ app.get("/order/:id", async (req, res) => {
   res.render("layout", { body: content });
 });
 
+// Order Creation here
 app.post("/checkout", async (req, res) => {
-  // const userId = req.session.userId;
-  const userId = 1;
+  const userId = req.session.userId;
+  // const userId = 1;
   const cart = req.session.cart;
   const orderItems = [];
 
