@@ -293,8 +293,10 @@ async function viewOrder(orderId) {
   const query = `
     SELECT 
       o.id AS order_id,
+      o.user_id AS user_id,
       o.order_date,
       s.name AS service_name,
+      s.image_filename as image_filename,
       oi.unit_price,
       oi.quantity,
       (oi.unit_price * oi.quantity) AS subtotal

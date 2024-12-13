@@ -1,0 +1,41 @@
+<div class="cart-container">
+  <% if (order.length === 0) { %>
+  <h1>Order Not Found</h1>
+  <p>It seems this order does not exist.</p>
+  <% } else { const orderId = order[0].order_id; const orderDate =
+  order[0].order_date; %>
+  <h1>Order #<%= orderId %></h1>
+  <p>Order Date: <%= new Date(orderDate).toLocaleString() %></p>
+
+  <div class="cart-items">
+    <% let total = 0; %> <% for (const item of order) { %> <% const lineTotal =
+    parseFloat(item.subtotal); total += lineTotal; %>
+    <div class="cart-item">
+      <div class="cart-image">
+        <img
+          src="images/<%= item.image_filename %>"
+          alt="<%= item.service_name %>"
+        />
+      </div>
+      <div class="cart-details">
+        <div class="cart-name"><%= item.service_name %></div>
+        <div class="cart-quantity-price">
+          <span class="cart-quantity">Qty: <%= item.quantity %></span>
+          <span class="cart-price"
+            >Unit Price: $<%= parseFloat(item.unit_price).toFixed(2) %></span
+          >
+        </div>
+        <div class="cart-line-total">
+          Line Total: $<%= lineTotal.toFixed(2) %>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
+  <div class="cart-summary">
+    <p><strong>Total:</strong> $<%= total.toFixed(2) %></p>
+    <a href="/" class="btn">Continue Shopping</a>
+  </div>
+  <% } %>
+</div>

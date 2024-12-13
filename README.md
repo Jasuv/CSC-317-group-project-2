@@ -33,11 +33,11 @@
     - ~~Route: app.get('/about')~~
     - ~~static~~
     - ~~body in views/about.ejs~~
-- Service Category: Web [Assigned to BILAL]
+- ~~Service Category: Web [Assigned to BILAL]~~
     - ~~Route: app.get('/services/web')~~
     - ~~dynamic~~
     - ~~body in views/services/web.ejs~~
-- Service Category: Infrastructure [Assigned to BILAL]
+- ~~Service Category: Infrastructure [Assigned to BILAL]~~
     - ~~Route: app.get('/services/infra')~~
     - ~~dynamic~~
     - ~~body in views/services/infra.ejs~~
@@ -51,16 +51,16 @@
     - Route: app.get('/profile')
     - dynamic
     - body in views/profile.ejs
-- Order: Create / View [Assigned to BILAL]
-    - Route (view): app.get('/order')
-    - Route (create): app.post('/order')
-    - dynamic
-    - body in views/order.ejs
-- Service Detail [Assigned to BILAL]
+- ~~Order: Create / View [Assigned to BILAL]~~
+    - ~~Route (view): app.get('/order')~~
+    - ~~Route (create): app.post('/order')~~
+    - ~~dynamic~~
+    - ~~body in views/order.ejs~~
+- ~~Service Detail [Assigned to BILAL]~~
     - ~~Route: app.get('/service/:id')~~
     - ~~dynamic~~
     - ~~body in views/service-detail.ejs~~
-- Add/Remove/Checkout/View cart [Assigned to BILAL]
+- ~~Add/Remove/Checkout/View cart [Assigned to BILAL]~~
     - ~~Route: app.get('/cart')~~
     - ~~dynamic~~
     - ~~body in views/cart.ejs~~

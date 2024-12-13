@@ -113,8 +113,45 @@ app.post("/auth", async (req, res) => {});
 app.get("/profile", async (req, res) => {});
 
 // Order: View (GET) and Create (POST)
-app.get("/order", async (req, res) => {});
-app.post("/order", async (req, res) => {});
+app.get("/order/:id", async (req, res) => {
+  // const userId = req.session.userId;
+  const userId = 1;
+  if (!req.params.id) return res.redirect("/");
+
+  const order = await viewOrder(req.params.id);
+  if (order[0].user_id !== userId) return res.redirect("/");
+
+  const content = await ejs.renderFile("views/order.ejs", { order });
+  res.render("layout", { body: content });
+});
+
+app.post("/checkout", async (req, res) => {
+  // const userId = req.session.userId;
+  const userId = 1;
+  const cart = req.session.cart;
+  const orderItems = [];
+
+  for (const id in cart) {
+    const service = await selectServiceDetails(id);
+    orderItems.push({
+      serviceId: service.id,
+      unitPrice: service.price,
+      quantity: cart[id],
+    });
+  }
+  const orderId = await createOrder(userId, orderItems);
+  req.session.cart = {};
+
+  res.redirect("/thanks/" + orderId);
+});
+
+app.get("/thanks/:id", async (req, res) => {
+  if (!req.params.id) return res.redirect("/");
+
+  const orderId = req.params.id;
+  const content = await ejs.renderFile("views/thanks.ejs", { orderId });
+  res.render("layout", { body: content });
+});
 
 // Service Detail (dynamic)
 app.get("/service/:id", async (req, res) => {
@@ -166,7 +203,7 @@ app.post("/cart/remove", async (req, res) => {
   }
   res.redirect("/cart");
 });
-app.post("/cart/checkout", async (req, res) => {});
+// app.post("/cart/checkout", async (req, res) => {});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

@@ -223,12 +223,13 @@ footer {
   margin-bottom: 1.875rem;
 }
 
-.hero .btn {
+.btn {
   background-color: var(--white-color);
   color: var(--primary-color);
   padding: 0.625rem 1.25rem;
   border-radius: 0.3125rem;
   font-size: 1.125rem;
+  border: 1px solid var(--primary-color);
 }
 
 .products-grid {
