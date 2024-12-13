@@ -21,15 +21,15 @@
     - ~~Route: app.get('/')~~
     - ~~static~~
     - ~~body in views/home.ejs~~
-- FAQ
+- ~~FAQ~~
     - ~~Route: app.get('/faq')~~
     - ~~static~~
     - ~~body in views/faq.ejs~~
-- Contact us
+- ~~Contact us~~
     - ~~Route: app.get('/contact')~~
     - ~~static~~
     - ~~body in views/contact.ejs~~
-- About us
+- ~~About us~~
     - ~~Route: app.get('/about')~~
     - ~~static~~
     - ~~body in views/about.ejs~~
@@ -44,7 +44,7 @@
 - ~~Login/Registration [Assigned to JOHN]~~
     - ~~Route (login): app.get('/auth')~~
     - ~~Route (register): app.post('/auth')~~
-    - ~~dynamic
+    - ~~dynamic~~
     - ~~body in views/login.ejs~~
     - ~~body in views/register.ejs~~
 - Profile
