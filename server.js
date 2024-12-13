@@ -65,9 +65,6 @@ app.get("/", async (req, res) => {
 
 // FAQ (static)
 app.get("/faq", async (req, res) => {
-  if (req.session.user) {
-  }
-
   const content = await ejs.renderFile("views/faq.ejs");
   res.render("layout", { body: content });
 });
