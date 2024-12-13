@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Your Orders</h1>
+
+  <% if (orders.length === 0) { %>
+    <p>You have no orders. <a href="/">Go Back Home</a></p>
+  <% } else { %>
+    <div class="cart-items">
+      <% for (const item of orders) { %>
+        <div class="cart-item">
+          <div class="cart-details">
+            <div class="cart-name">Order #<%= item.order_id %></div>
+            <div class="cart-quantity-price">
+              <span class="order-date">Order Date: <%= new Date(item.order_date).toLocaleString() %></span>
+            </div>
+          </div>
+          <div class="cart-remove">
+            <a href="/order/<%= item.order_id %>" class="btn">View Details</a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+</div>

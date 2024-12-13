@@ -175,9 +175,9 @@ app.post("/auth", async (req, res) => {
 // Profile (dynamic)
 app.get("/profile", async (req, res) => {});
 
-// Order: View (GET) and Create (POST)
+// View specific order
 app.get("/order/:id", async (req, res) => {
-  const userId = req.session.user.id;
+  const userId = req?.session?.user?.id || null;
   // const userId = 1;
   if (!req.params.id) return res.redirect("/");
 
@@ -188,9 +188,19 @@ app.get("/order/:id", async (req, res) => {
   res.render("layout", { body: content });
 });
 
+// View all orders
+app.get("/orders", async (req, res) => {
+  const userId = req?.session?.user?.id || null;
+  // const userId = 1;
+  const orders = await viewAllOrders(userId);
+
+  const content = await ejs.renderFile("views/orders.ejs", { orders });
+  res.render("layout", { body: content });
+});
+
 // Order Creation here
 app.post("/checkout", async (req, res) => {
-  const userId = req.session.user.id;
+  const userId = req?.session?.user?.id || null;
   // const userId = 1;
   const cart = req.session.cart;
   const orderItems = [];

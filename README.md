@@ -17,7 +17,7 @@
 # Todo: Figure out deployment --Bilal
 
 # Page Assignments
-- Homepage [Assigned to BILAL]
+- ~~Homepage [Assigned to BILAL]~~
     - ~~Route: app.get('/')~~
     - ~~static~~
     - ~~body in views/home.ejs~~
@@ -41,7 +41,7 @@
     - ~~Route: app.get('/services/infra')~~
     - ~~dynamic~~
     - ~~body in views/services/infra.ejs~~
-- Login/Registration [Assigned to JOHN]
+- ~~Login/Registration [Assigned to JOHN]~~
     - ~~Route (login): app.get('/auth')~~
     - ~~Route (register): app.post('/auth')~~
     - ~~dynamic
