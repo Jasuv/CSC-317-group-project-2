@@ -49,13 +49,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// for some reason vercel forces the wrong content type
-// so we force text/html as the default content type
-app.use((req, res, next) => {
-  res.setHeader("Content-Type", "text/html; charset=utf-8");
-  next();
-});
-
 // ==============================
 // Static Pages
 // ==============================
