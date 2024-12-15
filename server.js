@@ -49,6 +49,13 @@ app.use((req, res, next) => {
   next();
 });
 
+// for some reason vercel forces the wrong content type
+// so we force text/html as the default content type
+app.use((req, res, next) => {
+  res.setHeader("Content-Type", "text/html; charset=utf-8");
+  next();
+});
+
 // ==============================
 // Static Pages
 // ==============================
@@ -58,42 +65,36 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Homepage (static)
 app.get("/", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const content = await ejs.renderFile("views/home.ejs");
   res.render("layout", { body: content });
 });
 
 // FAQ (static)
 app.get("/faq", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const content = await ejs.renderFile("views/faq.ejs");
   res.render("layout", { body: content });
 });
 
 // Contact us (static)
 app.get("/contact", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const content = await ejs.renderFile("views/contact.ejs");
   res.render("layout", { body: content });
 });
 
 // About us (static)
 app.get("/about", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const content = await ejs.renderFile("views/about.ejs");
   res.render("layout", { body: content });
 });
 
 // Login (static)
 app.get("/login", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const content = await ejs.renderFile("views/login.ejs");
   res.render("layout", { body: content });
 });
 
 // Registration (static)
 app.get("/registration", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const content = await ejs.renderFile("views/registration.ejs");
   res.render("layout", { body: content });
 });
@@ -110,7 +111,6 @@ app.get("/logout", async (req, res) => {
 
 // Service Category: Web (dynamic)
 app.get("/services/web", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const services = await selectServicesByCategory("web");
   const title = "Web Services";
   const content = await ejs.renderFile("views/service-category.ejs", {
@@ -122,7 +122,6 @@ app.get("/services/web", async (req, res) => {
 
 // Service Category: Infrastructure (dynamic)
 app.get("/services/infra", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const services = await selectServicesByCategory("infra");
   const title = "Infrastructure Services";
   const content = await ejs.renderFile("views/service-category.ejs", {
@@ -134,7 +133,6 @@ app.get("/services/infra", async (req, res) => {
 
 // Login/Registration (dynamic)
 app.post("/auth", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const { username, password } = req.body;
 
   response = await authenticateUser(username, password);
@@ -152,7 +150,6 @@ app.post("/auth", async (req, res) => {
 });
 
 app.post("/auth", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const { first, last, dob, email, username, password, phone } = req.body;
 
   console.log(first);
@@ -179,13 +176,10 @@ app.post("/auth", async (req, res) => {
 });
 
 // Profile (dynamic)
-app.get("/profile", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
-});
+app.get("/profile", async (req, res) => {});
 
 // View specific order
 app.get("/order/:id", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const userId = req?.session?.user?.id || null;
   // const userId = 1;
   if (!req.params.id) return res.redirect("/");
@@ -199,7 +193,6 @@ app.get("/order/:id", async (req, res) => {
 
 // View all orders
 app.get("/orders", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const userId = req?.session?.user?.id || null;
   // const userId = 1;
   const orders = await viewAllOrders(userId);
@@ -230,7 +223,6 @@ app.post("/checkout", async (req, res) => {
 });
 
 app.get("/thanks/:id", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   if (!req.params.id) return res.redirect("/");
 
   const orderId = req.params.id;
@@ -240,7 +232,6 @@ app.get("/thanks/:id", async (req, res) => {
 
 // Service Detail (dynamic)
 app.get("/service/:id", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const service = await selectServiceDetails(req.params.id);
   const content = await ejs.renderFile("views/service-detail.ejs", {
     service,
@@ -250,7 +241,6 @@ app.get("/service/:id", async (req, res) => {
 
 // Cart (Add/Remove/Checkout/View) (dynamic)
 app.get("/cart", async (req, res) => {
-  res.setHeader("Content-Type", "text/html");
   const cart = req.session.cart;
   const services = [];
   for (const id in cart) {
