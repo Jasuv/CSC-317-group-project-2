@@ -46,7 +46,13 @@ app.use((req, res, next) => {
 // for templates to access user info
 app.use((req, res, next) => {
   res.locals.user = req.session.user || null;
+  next();
+});
 
+// for some reason vercel forces the wrong content type
+// so we force text/html as the default content type
+app.use((req, res, next) => {
+  res.setHeader("Content-Type", "text/html; charset=utf-8");
   next();
 });
 
@@ -127,7 +133,7 @@ app.get("/services/infra", async (req, res) => {
 
 // Login/Registration (dynamic)
 app.post("/auth", async (req, res) => {
-  const { username, password } = req.body
+  const { username, password } = req.body;
 
   response = await authenticateUser(username, password);
   if (!response) {
