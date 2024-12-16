@@ -464,7 +464,8 @@ footer {
   font-size: 1.125rem;
   line-height: 1.75;
   margin-bottom: 0.5rem;
-  color: var(--secondary-color);
+  color: var(--primary
+    -color);
 }
 
 .faq-category ul li:hover {
