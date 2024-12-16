@@ -1086,7 +1086,7 @@ h2 {
 }
 
 .checkout-btn {
-  background: var(--secondary-color);
+  background: var(--primary-color);
   color: #fff;
   border: none;
   padding: 10px 15px;
