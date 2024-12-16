@@ -31,7 +31,7 @@ async function insertNewUser({
   const saltRounds = 10;
   console.log(password);
   const passwordHash = await bcrypt.hash(password, saltRounds);
-  
+
   const query = `
     INSERT INTO Users (
       first_name,
@@ -61,7 +61,7 @@ async function insertNewUser({
     console.error("Error inserting new user:", err);
     throw err;
   }
-  
+
 }
 
 /**
@@ -107,7 +107,7 @@ async function authenticateUser(identifier, password) {
  */
 async function selectUser(userId) {
   const query = `
-    SELECT id, first_name, last_name, dob, email, username, phone_number
+    SELECT id, first_name, last_name, dob, email, username, phone_number, password_hash
     FROM Users
     WHERE id = $1;
   `;
@@ -137,33 +137,35 @@ async function selectUser(userId) {
  * @param {string} updates.passwordHash - Hashed password
  * @returns {Object|null} - Updated user record or null
  */
-async function updateUser(
-  userId,
-  { firstName, lastName, dob, email, username, phoneNumber, passwordHash }
-) {
-  const query = `
+async function updateUser(userId, { firstName, lastName, email, phoneNumber, username, newPassword }) {
+  let passwordHash = null;
+  if (newPassword) {
+    const saltRounds = 10;
+    passwordHash = await bcrypt.hash(newPassword, saltRounds);
+  }
+  let query = `
     UPDATE Users
     SET 
       first_name = $1,
       last_name = $2,
-      dob = $3,
-      email = $4,
-      username = $5,
-      phone_number = $6,
-      password_hash = $7
-    WHERE id = $8
+      email = $3,
+      username = $4,
+      phone_number = $5
+  `;
+  const values = [firstName, lastName, email, username, phoneNumber];
+
+  // add password hash if provided
+  if (passwordHash != null) {
+    query += `, password_hash = $6`;
+    values.push(passwordHash);
+  }
+
+  // update query
+  query += `
+    WHERE id = $${values.length + 1}
     RETURNING id, first_name, last_name, dob, email, username, phone_number;
   `;
-  const values = [
-    firstName,
-    lastName,
-    dob,
-    email,
-    username,
-    phoneNumber,
-    passwordHash,
-    userId,
-  ];
+  values.push(userId);
 
   try {
     const res = await pool.query(query, values);
@@ -173,7 +175,6 @@ async function updateUser(
     throw err;
   }
 }
-
 // =============================================================
 // Service Management Functions
 // =============================================================

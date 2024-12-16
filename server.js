@@ -124,10 +124,9 @@ app.get("/services/infra", async (req, res) => {
   res.render("layout", { body: content });
 });
 
-// Login/Registration (dynamic)
-app.post("/auth", async (req, res) => {
+// Login
+app.post("/auth-login", async (req, res) => {
   const { username, password } = req.body;
-
   response = await authenticateUser(username, password);
   if (!response) {
     const content = await ejs.renderFile("views/login.ejs");
@@ -142,6 +141,7 @@ app.post("/auth", async (req, res) => {
   }
 });
 
+// Registration
 app.post("/auth", async (req, res) => {
   const { first, last, dob, email, username, password, phone } = req.body;
 
@@ -169,12 +169,55 @@ app.post("/auth", async (req, res) => {
 });
 
 // Profile (dynamic)
-app.get("/profile", async (req, res) => {});
+app.get("/profile", async (req, res) => {
+  const userId = req?.session?.user?.id || null;
+  const profile = await selectUser(userId)
+  console.log(profile);
+  if (profile.id !== userId) return res.redirect("/");
+  const content = await ejs.renderFile("views/profile.ejs", { profile });
+  res.render("layout", { body: content });
+});
+
+app.post("/update-profile", async (req, res) => {
+  const userId = req.session.user?.id || null;
+  if (!userId) {
+  return res.status(401).send("Unauthorized: User not logged in.");
+  }
+  const {
+    first_name: firstName,
+    last_name: lastName,
+    email: email,
+    phone_number: phoneNumber,
+    username: username,
+    new_password: newPassword,
+    confirm_password: confirmPassword,
+  } = req.body;
+  if (newPassword && newPassword !== confirmPassword) {
+    return res.redirect("/profile");
+  }
+  try {
+    const updatedUser = await updateUser(userId, {
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      username,
+      newPassword,
+    });
+    if (!updatedUser) {
+      return res.status(404).send("Error: User not found");
+    }
+    req.session.user = updatedUser;
+    res.redirect("/profile");
+  } catch (err) {
+    console.error("Error updating user profile:", err);
+    res.status(500).send("Error updating user profile");
+  }
+});
 
 // View specific order
 app.get("/order/:id", async (req, res) => {
   const userId = req?.session?.user?.id || null;
-  // const userId = 1;
   if (!req.params.id) return res.redirect("/");
 
   const order = await viewOrder(req.params.id);
@@ -187,9 +230,8 @@ app.get("/order/:id", async (req, res) => {
 // View all orders
 app.get("/orders", async (req, res) => {
   const userId = req?.session?.user?.id || null;
-  // const userId = 1;
   const orders = await viewAllOrders(userId);
-
+  console.log(orders);
   const content = await ejs.renderFile("views/orders.ejs", { orders });
   res.render("layout", { body: content });
 });
@@ -273,25 +315,7 @@ app.post("/cart/remove", async (req, res) => {
   }
   res.redirect("/cart");
 });
-app.post("/cart/checkout", async (req, res) => {
-  const userId = req?.session?.user?.id || null;
-  if (!userId) return res.redirect("/login");
-  const cart = req.session.cart;
-  const orderItems = [];
-
-  for (const id in cart) {
-    const service = await selectServiceDetails(id);
-    orderItems.push({
-      serviceId: service.id,
-      unitPrice: service.price,
-      quantity: cart[id],
-    });
-  }
-  const orderId = await createOrder(userId, orderItems);
-  req.session.cart = {};
-
-  res.redirect("/thanks/" + orderId);
-  });
+// app.post("/cart/checkout", async (req, res) => {});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
