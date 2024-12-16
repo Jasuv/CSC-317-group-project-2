@@ -273,7 +273,25 @@ app.post("/cart/remove", async (req, res) => {
   }
   res.redirect("/cart");
 });
-// app.post("/cart/checkout", async (req, res) => {});
+app.post("/cart/checkout", async (req, res) => {
+  const userId = req?.session?.user?.id || null;
+  if (!userId) return res.redirect("/login");
+  const cart = req.session.cart;
+  const orderItems = [];
+
+  for (const id in cart) {
+    const service = await selectServiceDetails(id);
+    orderItems.push({
+      serviceId: service.id,
+      unitPrice: service.price,
+      quantity: cart[id],
+    });
+  }
+  const orderId = await createOrder(userId, orderItems);
+  req.session.cart = {};
+
+  res.redirect("/thanks/" + orderId);
+  });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
