@@ -1,7 +1,7 @@
 # Todo: Find Images for all services
 | Name                                   | Image Filename               |
 |----------------------------------------|------------------------------|
-| Logo Design                            | logo-design.png              |
+~~| Logo Design                            | logo-design.png              |~~
 | Static Website Development             | static-website.jpg           |
 | Web Application Development            | web-app.jpg                  |
 | Frontend Framework App Development     | frontend-app.jpg             |
