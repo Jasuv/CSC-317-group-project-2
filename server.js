@@ -231,8 +231,19 @@ app.get("/order/:id", async (req, res) => {
 app.get("/orders", async (req, res) => {
   const userId = req?.session?.user?.id || null;
   const orders = await viewAllOrders(userId);
-  console.log(orders);
-  const content = await ejs.renderFile("views/orders.ejs", { orders });
+  
+  const groupedOrders = orders.reduce((grouped, order) => {
+    const key = order.order_id;
+    if (!grouped[key]) {
+      grouped[key] = [];
+    }
+    grouped[key].push(order);
+    return grouped;
+  }, {});
+
+  console.log(groupedOrders);
+
+  const content = await ejs.renderFile("views/orders.ejs", { groupedOrders });
   res.render("layout", { body: content });
 });
 

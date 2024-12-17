@@ -1,19 +1,23 @@
 <div class="container">
   <h1>Your Orders</h1>
-  <% if (orders.length === 0) { %>
+  <% if (Object.keys(groupedOrders).length === 0) { %>
     <p>You have no orders. <a href="/">Go Back Home</a></p>
   <% } else { %>
     <div class="cart-items">
-      <% for (const item of orders) { %>
+      <% for (const orderId in groupedOrders) { %>
+        <% const items = groupedOrders[orderId]; %>
+        <% const orderDate = new Date(items[0].order_date).toLocaleString(); %>
+        <% const itemCount = items.length; %>
         <div class="cart-item">
           <div class="cart-details">
-            <div class="cart-name">Order #<%= item.order_id %></div>
+            <div class="cart-name">Order #<%= orderId %></div>
             <div class="cart-quantity-price">
-              <span class="order-date">Order Date: <%= new Date(item.order_date).toLocaleString() %></span>
+              <span class="order-date">Order Date: <%= orderDate %></span>
+              <span class="item-count">Items in Order: <%= itemCount %></span>
             </div>
           </div>
           <div class="cart-remove">
-            <a href="/order/<%= item.order_id %>" class="btn">View Details</a>
+            <a href="/order/<%= orderId %>" class="btn">View Details</a>
           </div>
         </div>
       <% } %>
