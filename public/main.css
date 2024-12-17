@@ -327,8 +327,8 @@ footer {
 }
 
 .add-to-cart {
-  background-color: var(--secondary-color);
-  color: var(--text-color);
+  background-color: var(--primary-color);
+  color: var(--white-color);
   border: none;
 }
 
