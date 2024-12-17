@@ -12,7 +12,7 @@
   --text-color: #190a0b;
   --background-color: #fcf8f8;
   --primary-color: #bc5356;
-  --secondary-color: #d1c9c7;
+  --secondary-color: #adbfb7;
   --tertiary-color: #f9f9f9;
   --white-color: #fff;
 }
@@ -607,7 +607,7 @@ main .login input[type="password"] {
 main .login .form-actions .btn {
   width: 100%;
   padding: 0.75rem;
-  background-color: #007bff;
+  background-color: var(--primary-color);
   color: #fff;
   font-size: 1rem;
   border: none;
@@ -617,7 +617,7 @@ main .login .form-actions .btn {
 }
 
 main .login .form-actions .btn:hover {
-  background-color: #0056b3;
+  background-color: var(--secondary-color);
 }
 
 main .login .form-links {
@@ -626,7 +626,7 @@ main .login .form-links {
 }
 
 main .login .form-links a {
-  color: #007bff;
+  color: var(--primary-color);
   text-decoration: none;
   margin: 0 0.5rem;
 }
@@ -646,7 +646,7 @@ footer .container {
 
 footer .footer-columns .footer-column h5 {
   margin-bottom: 1rem;
-  color: #007bff;
+  color: var(--primary-color)
 }
 
 footer .footer-columns .footer-column p,
@@ -661,12 +661,12 @@ footer .footer-columns .footer-column ul li {
 }
 
 footer .footer-columns .footer-column ul a {
-  color: #333;
+  color: var(--text-color)
   text-decoration: none;
 }
 
 footer .footer-columns .footer-column a:hover {
-  color: #007bff;
+  color: var(--primary-color)
 }
 
 footer .social-links img {
@@ -907,6 +907,7 @@ h2 {
   margin-right: 8px;
   color: var(--primary-color)
 }
+
 /* Media Queries */
 
 /* KEEP THIS AT THE BOTTOM OF THE CSS FILE */
