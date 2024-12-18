@@ -1,7 +1,7 @@
-<div class="container">
-  <h1>User Profile for <%= profile.username %> (ID: <%= profile.id %>)</h1>
+<div class="container-profile">
+  <h1><%= profile.username %><br> (ID: <%= profile.id %>)</h1>
   <!-- profile Details -->
-  <form action="/update-profile" method="POST">
+  <form action="/update-profile" method="POST" class="profile-form">
     <div class="profile-section">
       <h2>Profile Details:</h2>
       <div class="form-group">
@@ -22,8 +22,8 @@
       </div>
     </div>
     <!-- username & password -->
-    <h2>User Details:</h2>
     <div class="profile-section">
+      <h2>User Details:</h2>
       <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" value="<%= profile.username %>">
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="button-group">
-      <button type="submit" class="btn-primary">Save</button>
+      <button type="submit" class="btn-profile">Save</button>
     </div>
   </form>
 </div>
