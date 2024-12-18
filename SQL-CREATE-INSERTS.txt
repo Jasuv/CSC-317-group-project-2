@@ -1,0 +1,235 @@
+-- =============================================================
+-- Step 1: Create the Service table
+-- =============================================================
+
+CREATE TABLE Service (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT NOT NULL,
+    short_description VARCHAR(255) NOT NULL,
+    price NUMERIC(10, 2) NOT NULL CHECK (price >= 0),
+    image_filename VARCHAR(255),
+    category VARCHAR(10) NOT NULL CHECK (category IN ('web', 'infra'))
+);
+
+-- Example INSERT into Service
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Logo Design',
+    'Our professional logo design service will create a unique and memorable logo that perfectly represents your brand. Stand out from the competition with a custom-designed logo tailored to your business.',
+    'Our service will create a unique and memorable logo that perfectly represents your brand',
+    299.00,
+    'logo-design.png',
+    'web'
+);
+
+
+-- =============================================================
+-- Step 2: Create the Users table
+-- =============================================================
+
+CREATE TABLE Users (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    dob DATE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    username VARCHAR(50) UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(20)
+);
+
+-- Example INSERT into Users
+INSERT INTO Users (
+    first_name,
+    last_name,
+    dob,
+    email,
+    username,
+    password_hash,
+    phone_number
+) VALUES (
+    'Jane',
+    'Smith',
+    '1985-08-25',
+    'jane.smith@example.com',
+    'janesmith',
+    '$2b$12$KIXQ6fK8v1YQh1a6U8GzeO4YfK8v1YQh1a6U8GzeO4YfK8v1YQh1a', -- Example bcrypt hash
+    '+1-555-5678'
+);
+
+
+-- =============================================================
+-- Step 3: Create the Orders table (Adjusted)
+-- =============================================================
+
+CREATE TABLE Orders (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    order_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
+);
+
+-- Example INSERT into Orders
+INSERT INTO Orders (user_id)
+VALUES (
+    1  -- Assuming user with id=1 exists
+);
+
+
+-- =============================================================
+-- Step 4: Create the Order_Items table (Adjusted)
+-- =============================================================
+
+CREATE TABLE Order_Items (
+    id SERIAL PRIMARY KEY,
+    order_id INTEGER NOT NULL,
+    service_id INTEGER NOT NULL,
+    unit_price NUMERIC(10, 2) NOT NULL CHECK (unit_price >= 0),
+    quantity INTEGER NOT NULL CHECK (quantity > 0),
+    FOREIGN KEY (order_id) REFERENCES Orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (service_id) REFERENCES Service(id) ON DELETE RESTRICT
+);
+
+-- Example INSERT into Order_Items
+INSERT INTO Order_Items (order_id, service_id, unit_price, quantity)
+VALUES 
+    (1, 1, 299.00, 1); -- Assuming service with id=1 is 'Logo Design'
+
+
+-- =============================================================
+-- Step 5: Create Indexes for Performance (Optional but Recommended)
+-- =============================================================
+
+-- Index on Orders.user_id
+CREATE INDEX idx_orders_user_id ON Orders(user_id);
+
+-- Index on Order_Items.order_id
+CREATE INDEX idx_order_items_order_id ON Order_Items(order_id);
+
+-- Index on Order_Items.service_id
+CREATE INDEX idx_order_items_service_id ON Order_Items(service_id);
+
+
+
+
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Logo/Banner Design',
+    'Elevate your brand identity with our professional logo and banner design services. We create visually stunning and memorable designs that resonate with your target audience.',
+    'Visually stunning and memorable logo and banner designs for your brand',
+    399.00,
+    'logo-banner-design.jpg',
+    'web'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Static Website Development',
+    'Get a fast, secure, and SEO-friendly static website tailored to your business needs. Ideal for portfolios, informational sites, and small businesses.',
+    'A fast, secure, and SEO-friendly static website tailored to your business',
+    999.00,
+    'static-website.jpg',
+    'web'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Web Application Development',
+    'We build robust and scalable web applications tailored to your business requirements using the latest technologies.',
+    'Robust and scalable web applications tailored to your business needs',
+    4999.00,
+    'web-app.jpg',
+    'web'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Frontend Framework App Development',
+    'Develop dynamic and interactive web applications using modern frontend frameworks like React, Next.js, Vue.js, or Angular.',
+    'Dynamic, interactive web apps with React, Next.js, Vue, or Angular',
+    3499.00,
+    'frontend-app.jpg',
+    'web'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'API Endpoint Development',
+    'Secure and efficient API endpoints to power your web and mobile applications. We provide RESTful and GraphQL API development services.',
+    'Secure and efficient API endpoints for web and mobile apps',
+    1499.00,
+    'api-endpoint.jpg',
+    'web'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Portfolio Website Development',
+    'Showcase your work and achievements with a personalized portfolio website. Perfect for creatives, professionals, and freelancers.',
+    'A personalized portfolio website to showcase your work and achievements',
+    799.00,
+    'portfolio.jpg',
+    'web'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'CSS Stylizing and Animations',
+    'Enhance your website\'s user experience with custom CSS styles and animations. We create visually engaging effects that captivate your audience.',
+    'Custom CSS styles and animations to enhance user experience',
+    499.00,
+    'css-animations.jpg',
+    'web'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Mobile App Development',
+    'Develop high-performance Android and iOS applications tailored to your business needs. We provide end-to-end mobile app development services.',
+    'High-performance Android and iOS apps tailored to your business',
+    6999.00,
+    'mobile-app-development.jpg',
+    'infra'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'SQL Relational Database Development',
+    'Design and implement efficient and scalable SQL relational databases to manage your data effectively.',
+    'Efficient and scalable SQL relational databases for your data',
+    2499.00,
+    'sql-database.jpg',
+    'infra'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Cybersecurity and Penetration Testing',
+    'Protect your digital assets with our comprehensive cybersecurity and penetration testing services. Identify vulnerabilities and secure your infrastructure.',
+    'Comprehensive cybersecurity and penetration testing to secure your infrastructure',
+    4499.00,
+    'cybersecurity.jpg',
+    'infra'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Cloud Infrastructure Services',
+    'Migrate to the cloud or optimize your existing cloud infrastructure with our expert services. We support AWS, Azure, and Google Cloud platforms.',
+    'Cloud migration, setup, and optimization services for AWS, Azure, GCP',
+    3999.00,
+    'cloud-infrastructure.jpg',
+    'infra'
+);
+
+INSERT INTO Service (name, description, short_description, price, image_filename, category)
+VALUES (
+    'Domain Name Management',
+    'Simplify your domain management with our comprehensive services, including registration, renewal, DNS management, and SSL certificates.',
+    'Domain registration, renewal, DNS management, and SSL certificates',
+    199.00,
+    'domain-management.jpg',
+    'infra'
+);
