@@ -1,6 +1,6 @@
 # CS317 Final Project - Ecommerce Store
 ## This website CodeQuad allows you to purchase online services such as a mobile app or logo design. 
-## The website has a fully functional front and back end with the ability to create an account, add to a cart, and checkout.
+## The website has a fully functional front and back end with the ability to create an account, add to cart, checkout, and check order history.
 
 
 
